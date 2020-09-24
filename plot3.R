@@ -3,10 +3,10 @@ if(!file.exists("./data/powerConsumeTidy.csv")){
 }
 
 # Reading and adjusting the data
-globalActivePower <- read.csv("./data/powerConsumeTidy.csv")
+subMetering <- read.csv("./data/powerConsumeTidy.csv")
 
 
-globalActivePower <- globalActivePower %>%
+subMetering <- subMetering %>%
       mutate(datetime = paste(Date, Time)) %>%
       mutate(datetime = as.POSIXlt(datetime, format = "%Y-%m-%d %H:%M:%S")) %>%
       filter(!is.na(datetime))
@@ -14,7 +14,7 @@ globalActivePower <- globalActivePower %>%
 if(!file.exists("./images")){dir.create("./images")}
 
 png(filename = "./images/plot3.png")
-with(globalActivePower, {
+with(subMetering, {
       plot(datetime, Sub_metering_1, type = "l", 
            ylab = "Energy sub metering", xlab = "")
       points(datetime, Sub_metering_2, col = "red", type = "l")

@@ -3,10 +3,10 @@ if(!file.exists("./data/powerConsumeTidy.csv")){
 }
 
 # Reading and adjusting the data
-globalActivePower <- read.csv("./data/powerConsumeTidy.csv")
+power <- read.csv("./data/powerConsumeTidy.csv")
 
 
-globalActivePower <- globalActivePower %>%
+power <- power %>%
       mutate(datetime = paste(Date, Time)) %>%
       mutate(datetime = as.POSIXlt(datetime, format = "%Y-%m-%d %H:%M:%S")) %>%
       filter(!is.na(datetime))
@@ -17,12 +17,12 @@ png(filename = "./images/plot4.png")
 
 par(mfcol = c(2, 2))
 #Same code of  graph 2
-with(globalActivePower, plot(datetime, Global_active_power, type = "l", 
+with(power, plot(datetime, Global_active_power, type = "l", 
                              xlab = "", 
                              ylab = "Global Active Power"))
 
 #Same code of graph 3
-with(globalActivePower, {
+with(power, {
       plot(datetime, Sub_metering_1, type = "l", 
            ylab = "Energy sub metering", xlab = "")
       points(datetime, Sub_metering_2, col = "red", type = "l")
@@ -33,9 +33,9 @@ with(globalActivePower, {
 })
 
 
-with(globalActivePower, plot(datetime, Voltage, type = "l"))
+with(power, plot(datetime, Voltage, type = "l"))
 
 
-with(globalActivePower, plot(datetime, Global_reactive_power, type = "l"))
+with(power, plot(datetime, Global_reactive_power, type = "l"))
 
 dev.off()

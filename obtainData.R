@@ -31,7 +31,7 @@ powerConsume <- powerConsume %>%
            Sub_metering_3 = as.numeric(Sub_metering_3)) %>%
    
    filter(Date >= as.Date("2007-02-01", format = "%Y-%m-%d"),
-          Date <= as.Date("2007-02-02", format = "%Y-%m-%d"))
+          Date <= as.Date("2007-02-02", format = "%Y-%m-%d")) %>%
 
 #Saving for use in the others scripts
 write.csv(powerConsume, "./data/powerConsumeTidy.csv")
