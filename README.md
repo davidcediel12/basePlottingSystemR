@@ -1,5 +1,6 @@
 # Course Project Exploratory Data Analysis Week 1
 
+The images are in the folder *images*
 ### Objective and Overview:
 In this assignement I can practice the contents of the lecture, making some plots with the data of [Individual Household electric power consumption](https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip)
 
